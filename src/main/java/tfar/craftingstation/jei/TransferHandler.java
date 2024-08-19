@@ -6,7 +6,6 @@ import mezz.jei.api.recipe.transfer.IRecipeTransferInfo;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
-import org.jetbrains.annotations.Nullable;
 import tfar.craftingstation.CraftingStation;
 import tfar.craftingstation.CraftingStationMenu;
 
@@ -53,7 +52,9 @@ public class TransferHandler implements IRecipeTransferInfo {
             List<Slot> slots = new ArrayList<>();
             for (int i = 10; i < 10 + menu.subContainerSize + 36; i++) {
                 Slot slot = container.getSlot(i);
-                slots.add(slot);
+                if (slot.hasItem()) {
+                    slots.add(slot);
+                }
             }
             return slots;
         } else {
