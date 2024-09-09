@@ -16,11 +16,6 @@ public class BigSlot extends SlotItemHandler {
   }
 
   @Override
-  public int getMaxStackSize(@Nonnull ItemStack stack) {
-    return getItemHandler().getSlotLimit(index);
-  }
-
-  @Override
   public boolean isSameInventory(Slot other) {
     return other instanceof BigSlot && ((BigSlot) other).getItemHandler() == this.getItemHandler();
   }
