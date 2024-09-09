@@ -51,6 +51,7 @@ public class CraftingStationScreen extends AbstractContainerScreen<CraftingStati
         addRenderableWidget(new TabButton(leftPos - 128 + 21 * i, topPos - 22, 22, 28, button -> changeContainer(((TabButton)button).index),i,menu.blocks.get(i),this));
         jeiWarningPages[i] = false;
         Container container = menu.getContainerFromId(i);
+        if (container == null) continue;
         for (int j = 0; j < container.getContainerSize(); j++) {
           ItemStack item = container.getItem(j);
           boolean modifiable = container.canPlaceItem(j, item) && container.canTakeItem(container, j, item);
