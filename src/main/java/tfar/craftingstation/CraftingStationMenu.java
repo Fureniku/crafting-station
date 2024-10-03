@@ -240,6 +240,7 @@ public class CraftingStationMenu extends AbstractContainerMenu {
 
     @Override
     public void slotsChanged(Container inventory) {
+        world.sendBlockUpdated(tileEntity.getBlockPos(), tileEntity.getBlockState(), tileEntity.getBlockState(), 2);
         this.slotChangedCraftingGrid(world, player, craftMatrix, craftResult);
     }
 
